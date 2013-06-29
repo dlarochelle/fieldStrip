@@ -34,4 +34,14 @@
         android:entries="@array/menu_number"
         android:prompt="@string/meal_number_prompt" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_marginLeft="17dp"
+        android:onClick="doPost"
+        android:text="Search" />
+
 </RelativeLayout>

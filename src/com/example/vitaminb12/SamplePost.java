@@ -10,10 +10,14 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.view.View;
+
 public class SamplePost {
 
-	public static void main(String args[]){
-		HashMap testObj = new HashMap();
+	
+	
+	public static void backendCall(String args[]){
+		HashMap<String, String> testObj = new HashMap<String, String>();
 		testObj.put("name", "bogus");
 		testObj.put("field_type", "text_en");
 		testObj.put("indexed", "true");
@@ -26,11 +30,11 @@ public class SamplePost {
 		try {
 			URL                 url;
 			URLConnection   urlConn;
-			DataOutputStream    printout = null;
 			DataInputStream     input;
 
-			//Make the actual connection
-			url = new URL ("http://example.com/restAPI");
+			//Make the actual connection/
+			//item?ration="MRE32&menu=MENU+3
+			url = new URL ("http://mitercam.mit.edu:38084/NatickJersey/webapi/menu?type=mre&menu=3&entree=barb");
 			urlConn = url.openConnection();
 			urlConn.setDoInput (true);
 			urlConn.setDoOutput (true);
@@ -39,10 +43,9 @@ public class SamplePost {
 // urlConn.setRequestProperty("Content-Type",   //Send the JSON data
 	//		       		         printout = new DataOutputStream (urlConn.getOutputStream ());
 			String content = jsonObj.toString();
-			printout.writeBytes (content);
-			printout.flush ();
-			printout.close ();
-
+			
+			// Do something with content
+			
 			// Get response 
 			input = new DataInputStream (urlConn.getInputStream ());
 			String str;
